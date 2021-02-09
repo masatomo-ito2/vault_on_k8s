@@ -1,0 +1,12 @@
+spec:
+  template:
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-inject-status: "update"
+        vault.hashicorp.com/role: "nginx"
+        vault.hashicorp.com/agent-inject-secret-mysecret.txt: "kv/secret"
+        vault.hashicorp.com/agent-inject-template-mysecret.txt: |
+          {{- with secret "kv/secret" -}}
+          I am {{ .Data.user }}. I live in {{ .Data.address }}.
+          {{- end -}} 
