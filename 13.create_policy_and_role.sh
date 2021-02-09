@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # copy policy to vault pod
 kubectl cp ./nginx_policy.hcl vault-0:/tmp/nginx_policy.hcl 
 
